@@ -1,14 +1,9 @@
-//boiler plate
-////////////////////////////////////////////////////////////////////////////////////
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mysql = require('mysql');
 var exphbs = require('express-handlebars');
 
-
-var connectionFile = require(__dirname+'/config/connection.js');
 var router = require(__dirname+'/controllers/burgers_controller.js');
 
 //set up app
@@ -30,34 +25,8 @@ app.use(methodOverride('_method'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//connect to the database
-var connection =  connectionFile.connect(mysql);
-// connectionFile.main.defineConnection(mysql);
-// console.log(connectionFile.main.connection);
-
-// connectionFile.main.connect();
-
-
-//   var connection = mysql.createConnection({
-//     host     : 'localhost',
-//     user     : 'root',
-//     password : '',
-//     database : 'burgers_db'
-//   });
-console.log(connection);
-
-
-//end of boiler plate
-////////////////////////////////////////////////////////////////////////////////////
-
-
-//ROUTES/////////////////
-router.runRoutes(app, connection);
-
-
-
-
-
+//run the routes
+router(app);
 
 
 //LISTEN
