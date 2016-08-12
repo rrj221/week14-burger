@@ -1,3 +1,15 @@
 body {
+	background-color: #bc0016;
+	color: yellow;
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+}
+
+.well {
 	background-color: yellow;
+	color: #bc0016;
+	font-weight: bold;
 }
