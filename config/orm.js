@@ -6,7 +6,6 @@ module.exports = {
 				devoured: true
 			}, function(err, result) {
 				if (err) throw err;
-				console.log(result);
 				var devouredArray = result;
 				connection.query('SELECT * FROM burgers WHERE ? ORDER BY id ASC', {
 					devoured: false
